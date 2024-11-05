@@ -1,25 +1,30 @@
 package main
 
 import (
-	"log"
-
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
-
-	pb "grpc-unary/hello/proto"
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
-var addr string = "localhost:50051"
+func hello(c *gin.Context) {
+	data, err := doHello(c, "Maulana")
+	if err != nil {
+		c.JSON(500, err)
+		return
+	}
+	c.JSON(200, data)
+	return
+}
+
+func helloRoute(router *gin.RouterGroup) {
+	router.GET("/", hello)
+}
 
 func main() {
-	conn, err := grpc.Dial(addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	r := gin.Default()
+	r.Use(cors.Default())
 
-	if err != nil {
-		log.Fatalf("Failed to correct: %v\n", err)
-	}
+	api := r.Group("/api")
+	helloRoute(api.Group("/hello"))
 
-	defer conn.Close()
-	c := pb.NewHelloServiceClient(conn)
-
-	doHello(c)
+	r.Run()
 }
