@@ -1,2 +1,3 @@
 ### Visualization
-![image](https://github.com/user-attachments/assets/217f2f1c-fcd9-4d2b-bec7-ce7f1f7c9a71)
+![image](https://github.com/user-attachments/assets/8a033d9c-9b1f-4b7f-ad89-2998b2b19322)
+
