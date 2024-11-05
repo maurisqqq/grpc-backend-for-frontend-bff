@@ -1,5 +1,2 @@
-## Description
->Unary streaming is similar to rest API because the client and server transmit a single request and response.
-
 ### Visualization
-![image](https://github.com/user-attachments/assets/05147ed6-d0bd-4300-b605-dc86f8b24d20)
+![image](https://github.com/user-attachments/assets/217f2f1c-fcd9-4d2b-bec7-ce7f1f7c9a71)
